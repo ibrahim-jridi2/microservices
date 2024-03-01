@@ -10,5 +10,5 @@ import org.springframework.data.repository.query.Param;
 public interface JobRepository extends JpaRepository<Job,Integer> {
 //@Query("Select j from Job j where j.service like :service")
 //    Page<Job> jobByName(@Param("service") String service, Pageable pageable);
-    Page<Job> findJobByIdOrService(int id,String service);
+    Page<Job> findJobByIdOrService(int id,String service, Pageable pageable);
 }
