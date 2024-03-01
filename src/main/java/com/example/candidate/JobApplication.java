@@ -19,9 +19,8 @@ public class JobApplication {
     @Bean
     ApplicationRunner init(){
         return (args) ->{
-            repo.save(new Job());
-            repo.save(new Job());
-            repo.save(new Job());
+            repo.save(new Job("aa",false));
+
             repo.findAll().forEach(System.out::println);
         };
     }

@@ -16,19 +16,19 @@ public class JobRestApi {
     private JobService jobService;
     @PostMapping(consumes = MediaType.APPLICATION_XML_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Job> createCandidat(@RequestBody Job job) {
+    public ResponseEntity<Job> createJob(@RequestBody Job job) {
         return new ResponseEntity<>(jobService.addCandidat(job), HttpStatus.OK);
     }
     @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<Job> updateCandidat(@PathVariable(value = "id") int id,
+    public ResponseEntity<Job> updateJob(@PathVariable(value = "id") int id,
                                               @RequestBody Job job){
         return new ResponseEntity<>(jobService.updateCandidat(id, job),
                 HttpStatus.OK);
     }
     @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<String> deleteCandidat(@PathVariable(value = "id") int id){
+    public ResponseEntity<String> deleteJob(@PathVariable(value = "id") int id){
         return new ResponseEntity<>(jobService.deleteCandidat(id), HttpStatus.OK);
     }
     @RequestMapping("/hello")
