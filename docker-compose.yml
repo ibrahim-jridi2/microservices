@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+
+  eurekaserver:
+    build:
+      context: D:\esprit\2eme-annee\microservice\EurekaSever
+    ports:
+      - "8888:8761"
+    image: "eur"
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eurekaserver:8761/eureka/
+
+  candidate:
+    build:
+      context: D:\esprit\2eme-annee\microservice\Candidate
+    ports:
+      - "8088:8761"
+    image: "can"
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eurekaserver:8761/eureka/
+
+  job:
+    build:
+      context: D:\esprit\2eme-annee\microservice\msJob-main
+    ports:
+      - "8081:8761"
+    image: "job"
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eurekaserver:8761/eureka/
